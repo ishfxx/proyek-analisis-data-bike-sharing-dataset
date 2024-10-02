@@ -54,7 +54,7 @@ axes[1].set_title('Correlation Matrix - hour.csv')
 st.pyplot(fig)
 
 # Read the day.csv again (if needed)
-day_df = pd.read_csv('C:/Users/NABIL/Documents/Tugas Matkul/Bangkit/Dicoding/submission/data/day.csv')
+day_df = pd.read_csv('data/day.csv')
 
 # Bar plot for season-wise rentals
 season_counts = day_df.groupby('season')['cnt'].sum().reset_index()
