@@ -8,8 +8,8 @@ import seaborn as sns
 @st.cache
 def load_data():
     # Adjust the path to the datasets as needed
-    day_df = pd.read_csv('../data/day.csv')
-    hour_df = pd.read_csv('../data/hour.csv')
+    day_df = pd.read_csv('data/day.csv')
+    hour_df = pd.read_csv('data/hour.csv')
     return day_df, hour_df
 
 # Business Questions
