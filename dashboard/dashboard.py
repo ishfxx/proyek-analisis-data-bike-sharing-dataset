@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # Load the datasets
-day_df = pd.read_csv('data/day.csv')
-hour_df = pd.read_csv('data/hour.csv')
+day_df = pd.read_csv('../data/day.csv')
+hour_df = pd.read_csv('../data/hour.csv')
 
 # Checking missing values
 st.header("Checking missing values for 'day.csv':")
@@ -15,11 +15,13 @@ st.header("Checking missing values for 'hour.csv':")
 st.write(hour_df.isnull().sum())
 
 # Data types and summary
-st.header("Data types and summary for 'day.csv':")
-st.write(day_df.info())
+st.header("Data types for 'day.csv':")
+st.write(day_df.dtypes)
+st.write(day_df.describe())
 
-st.header("Data types and summary for 'hour.csv':")
-st.write(hour_df.info())
+st.header("Data types for 'hour.csv':")
+st.write(hour_df.dtypes)
+st.write(hour_df.describe())
 
 # Drop duplicates
 day_df.drop_duplicates(inplace=True)
@@ -44,7 +46,6 @@ numerical_cols_hour = hour_df.select_dtypes(include=['float64', 'int64'])
 st.header("Correlation Matrices")
 
 fig, axes = plt.subplots(2, 1, figsize=(10, 12))  
-
 sns.heatmap(numerical_cols_day.corr(), annot=True, cmap='coolwarm', ax=axes[0])
 axes[0].set_title('Correlation Matrix - day.csv')
 
@@ -52,9 +53,7 @@ sns.heatmap(numerical_cols_hour.corr(), annot=True, cmap='coolwarm', ax=axes[1])
 axes[1].set_title('Correlation Matrix - hour.csv')
 
 st.pyplot(fig)
-
-# Read the day.csv again (if needed)
-day_df = pd.read_csv('data/day.csv')
+plt.close()
 
 # Bar plot for season-wise rentals
 season_counts = day_df.groupby('season')['cnt'].sum().reset_index()
@@ -71,9 +70,10 @@ plt.ylabel('Jumlah Penyewaan Sepeda')
 
 for bar in bars:
     yval = bar.get_height()
-    plt.text(bar.get_x() + bar.get_width()/2, yval, int(yval), va='bottom')  # Va = vertical alignment
+    plt.text(bar.get_x() + bar.get_width()/2, yval, int(yval), va='bottom')
 
 st.pyplot(plt)
+plt.clf()
 
 # Regplot for temperature vs bike rentals
 st.header("Hubungan Suhu dan Jumlah Penyewaan Sepeda (day.csv)")
@@ -85,6 +85,7 @@ plt.xlabel('Suhu')
 plt.ylabel('Jumlah Penyewaan Sepeda')
 
 st.pyplot(plt)
+plt.clf()
 
 # Line plot for hourly bike rentals
 st.header("Pola Penyewaan Sepeda Berdasarkan Jam (hour.csv)")
@@ -97,6 +98,7 @@ plt.ylabel('Jumlah Penyewaan', fontsize=14)
 plt.grid(True)
 
 st.pyplot(plt)
+plt.clf()
 
 # Bar plot for weather conditions and bike rentals
 weather_counts = day_df.groupby('weathersit')['cnt'].sum().reset_index()
@@ -109,7 +111,7 @@ for index, row in weather_counts.iterrows():
     if row['cnt'] == max_count:
         plt.bar(row['weathersit'], row['cnt'], color='blue')  # Bar tertinggi
     else:
-        plt.bar(row['weathersit'], row['cnt'], color='lightblue')  # Bar lainnya
+        plt.bar(row['weathersit'], row['cnt'], color='lightblue')
 
 plt.title('Pengaruh Kondisi Cuaca terhadap Penyewaan Sepeda (day.csv)', fontsize=16)
 plt.xlabel('Kondisi Cuaca', fontsize=14)
@@ -117,3 +119,4 @@ plt.ylabel('Total Penyewaan Sepeda', fontsize=14)
 plt.grid(axis='y')
 
 st.pyplot(plt)
+plt.close()
