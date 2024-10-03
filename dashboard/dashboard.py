@@ -72,7 +72,7 @@ plt.close()
 
 # Select numerical columns for correlation matrix
 numerical_cols_day = day_df.select_dtypes(include=['float64', 'int64'])
-numerical_cols_hour = hour_df.select_dtypes(include(['float64', 'int64']))
+numerical_cols_hour = hour_df.select_dtypes(include=(['float64', 'int64']))
 
 # Plot correlation matrices (addressing temperature and rental correlation)
 st.header("Correlation Matrices")
