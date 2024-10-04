@@ -7,8 +7,8 @@ import streamlit as st
 st.title("Analisis Data Penyewaan Sepeda")
 
 # Jalur file untuk day.csv dan hour.csv
-day_file_path = '../data/day.csv'  # Sesuaikan jalur ini sesuai kebutuhan
-hour_file_path = '../data/hour.csv'  # Sesuaikan jalur ini sesuai kebutuhan
+day_file_path = './data/day.csv'  # Sesuaikan jalur ini sesuai kebutuhan
+hour_file_path = './data/hour.csv'  # Sesuaikan jalur ini sesuai kebutuhan
 
 # Memuat dataset
 day_df = pd.read_csv(day_file_path)
