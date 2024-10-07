@@ -9,7 +9,7 @@ Proyek bertujuan untuk mengeksplorasi faktor-faktor yang memengaruhi penyewaan s
   - Bagaimana suhu memengaruhi jumlah penyewaan sepeda harian?
   - Bagaimana suhu memengaruhi penyewaan sepeda pada jam tertentu?
   - Bagaimana kondisi cuaca memengaruhi total penyewaan sepeda?
-- **Import Data & Wrangling**: Proses memuat, menilai, dan membersihkan data dilakukan secara bertahap, termasuk penghapusan kolom yang tidak diperlukan seperti `instant`.
+- **Import Data & Wrangling**: Proses memuat, menilai, dan membersihkan data dilakukan secara bertahap, termasuk penghapusan kolom yang tidak diperlukan.
 - **Exploratory Data Analysis (EDA)**: Bertujuan untuk mengeksplorasi faktor-faktor yang memengaruhi penyewaan sepeda, termasuk musim dengan jumlah penyewaan tertinggi, pengaruh suhu terhadap penyewaan harian dan per jam, serta dampak kondisi cuaca terhadap total penyewaan sepeda, melalui visualisasi bar plot, scatter plot, dan line plot untuk mengidentifikasi pola dan hubungan signifikan.
 
 - **Regresi Linear**: Proyek ini melakukan analisis regresi linear untuk memodelkan hubungan antara suhu dan jumlah penyewa sepeda harian.
